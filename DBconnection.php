@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("cosc360.ok.ubc.ca","root","","db_83864363");
+$con = mysqli_connect("localhost","83864363","83864363","db_83864363");
 
 $username= $_POST['username'];
 $email = $_POST['email'];
