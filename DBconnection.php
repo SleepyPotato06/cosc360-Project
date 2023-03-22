@@ -11,7 +11,7 @@ if($con->connect_error){
     $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`) VALUES (?,?,?)");
     $stmt->bind_param("sss",$username,$email,$password);
     $stmt->execute();
-    echo "Registered Successfully !";
+    echo "<meta http-equiv=\"refresh\" content=\"0;url=http://www.google.com/\" />";
     $stmt->close();
     $con->close();
 }
