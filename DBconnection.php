@@ -11,7 +11,7 @@ if($con->connect_error){
     $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`) VALUES (?,?,?)");
     $stmt->bind_param("sss",$username,$email,$password);
     $stmt->execute();
-    echo "<meta http-equiv=\"refresh\" content=\"0;url=http://www.google.com/\" />";
+    echo "<meta http-equiv=\"refresh\" content=\"0;url=https://cosc360.ok.ubc.ca/suyash06/cosc360-Project/signIn.php\" />";
     $stmt->close();
     $con->close();
 }
