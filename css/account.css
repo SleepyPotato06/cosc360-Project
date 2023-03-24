@@ -67,7 +67,7 @@
 display: grid;
 width: fit-content;
 grid-template-columns: 30em 30em;
-column-gap: 2em
+column-gap: 1.5em
 }  
 
 .user-account-box form .item-1,.item-3{
