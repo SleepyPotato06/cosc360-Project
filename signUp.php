@@ -1,7 +1,5 @@
 <?php
 include 'DBconnection.php';
-
-    $status = '';
     $statusMsg = '';
 
     if ($con->connect_error) {
@@ -18,19 +16,35 @@ include 'DBconnection.php';
             $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
 
             // Allow certain file formats 
-            $allowTypes = array('jpg','png','jpeg'); 
+            $allowTypes = array('jpg','png','jpeg');
+            
+            //Check if data already exists 
+            $stmt = $con->prepare("SELECT * FROM `user_auth` WHERE  (`Email` = ? && `Password` = ?) || (`Username` = ? && `Password` = ?) ");
+            $stmt->bind_param("ssss", $email,$password,$username,$password); 
+            $stmt->execute();
+            $resultSet = $stmt->get_result(); // get the mysqli result
+            $result = $resultSet->fetch_assoc();
+
             if(in_array($fileType, $allowTypes)){ 
                 $image = $_FILES['img']['tmp_name']; 
-                $imgContent = addslashes(file_get_contents($image)); 
-                
-                // Insert image content into database 
-                $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`,`userType`) VALUES (?,?,?,?,?,?)");
-                $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent,'user'); 
-                $stmt->execute();
-                header('location:account.php');
-                // echo "It worked !";
-                $stmt->close();
-                $con->close();
+                $imgContent = addslashes(file_get_contents($image));
+
+                if($email == "" || $username == "" || $password == "" || $verifyPassword == "" || $imgContent == ""){
+                    $statusMsg = 'Please enter all the required details !';
+                }elseif($password != $verifyPassword){
+                    $statusMsg = 'Passwords do not match !';
+                }elseif(mysqli_num_rows($result) > 0){
+                    $statusMsg = 'User already exists !';
+                }else{
+                    // Insert image content into database   
+                    $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`,`userType`) VALUES (?,?,?,?,?,?)");
+                    $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent,'user'); 
+                    $stmt->execute();
+                    header('location:account.php');
+                    // echo "It worked !";
+                    $stmt->close();
+                    $con->close();
+                }
             }else{ 
                 $statusMsg = 'Sorry, only JPG, JPEG & PNG files are allowed to upload.'; 
             } 
@@ -91,7 +105,7 @@ include 'DBconnection.php';
                 </div>
             </div>  
             <div class="register-box">
-                <form name = "RegisterForm" enctype="multipart/form-data" action= "" onsubmit="return validateRegisterForm()" method="POST">
+                <form name = "RegisterForm" enctype="multipart/form-data" action= "" onsubmit="return validateRegisterForm()" method="POST" required>
                             <div class="item-1">
                                 <label>Username <span style="color: red;">*</span></label><br>                   
                                 <input type = "text" name = "username" placeholder="What Should We Call You?">
