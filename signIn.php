@@ -6,8 +6,8 @@ session_start();
 
 if(isset($_GET['submit'])){
 
-    $userOremail= $_GET['user-email'];
-    $password = $_GET['password'];
+    $userOremail= $_POST['user-email'];
+    $password = $_POST['password'];
 
    $select = " SELECT * FROM user_auth WHERE (Email = '$userOremail' && Password = '$password')  || (Username = '$userOremail' && Password = '$password')";
 
@@ -87,7 +87,7 @@ if(isset($_GET['submit'])){
                 </div>
             </div>  
             <div class="login-box">
-                <form name = "LoginForm" id ="LoginForm" action= "" onsubmit="return validateLoginForm()" method="GET" required>
+                <form name = "LoginForm" id ="LoginForm" action= "" onsubmit="return validateLoginForm()" method="POST" required>
                     <div class="item-1">
                         <label>Username or Email</label><br>     
                         <input type = "text" name = "user-email" placeholder="What’s Your Registered Username or Email?">
