@@ -41,7 +41,7 @@ include 'DBconnection.php';
                 }else{
                     // Insert image content into database   
                     $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`) VALUES (?,?,?,?,?)");
-                    $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent); 
+                    $stmt->bind_param("sssss",$username,$email,$password,$selectedOption,$imgContent); 
                     $stmt->execute();
                     // header('location:account.php');
                     $stmt->close();
