@@ -4,7 +4,7 @@ session_start();
 $email= $_POST['email'];
 $password = $_POST['password'];
 $Id = $_SESSION["Id"];
-echo $_SESSION["Id"];
+echo $Id;
 // if ($con->connect_error) {
 //     die("Connection failed: " . $con->connect_error);
 // }else{
