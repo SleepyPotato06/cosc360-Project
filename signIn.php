@@ -81,7 +81,7 @@ session_start();
                 </div>
             </div>  
             <div class="login-box">
-                <form name = "LoginForm" id ="LoginForm" action= "" onsubmit="return validateLoginForm()" method="POST" required>
+                <form name = "LoginForm" id ="LoginForm" action= "" onsubmit="return validateLoginForm()" method="GET" required>
                     <div class="item-1">
                         <label>Username or Email</label><br>     
                         <input type = "text" name = "user-email" placeholder="What’s Your Registered Username or Email?">
