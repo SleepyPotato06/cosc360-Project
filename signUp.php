@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
       if($password != $verifyPassword){
          $error[] = 'Password not matched!';
       }else{
-         $insert = "INSERT INTO user_auth(Username, Email, Password, profilePicture, comingFrom, userType) VALUES('$name','$email','$pass',$image, $selectedOption,'user')";
+         $insert = "INSERT INTO user_auth(Username, Email, Password, profilePicture, comingFrom, userType) VALUES('$username','$email','$password',$image, $selectedOption,'user')";
          mysqli_query($con, $insert);
          header('location:signIn.php');
       }
