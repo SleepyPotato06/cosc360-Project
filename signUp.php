@@ -39,15 +39,14 @@ include 'DBconnection.php';
                     echo "resultset error !";
                     $statusMsg = 'User already exists !';
                 }else{
-                    echo "insertion executed !";
                     // Insert image content into database   
                     $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`) VALUES (?,?,?,?,?)");
                     $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent); 
                     $stmt->execute();
                     // header('location:account.php');
-                    echo "insertion executed !";
                     $stmt->close();
                     $con->close();
+                    echo "insertion executed !";
                 }
             }else{ 
                 $statusMsg = 'Sorry, only JPG, JPEG & PNG files are allowed to upload.'; 
