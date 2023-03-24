@@ -3,33 +3,37 @@ include 'DBconnection.php';
 
     $status = '';
     $statusMsg = '';
-    $status = 'error'; 
-    if(!empty($_FILES["img"]["name"])) { 
-        $username= $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $verifyPassword = $_POST['verifyPassword'];
-        $selectedOption = $_POST['selectionMenu'];
-        $fileName = basename($_FILES["img"]["name"]);
-        $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
 
-        // Allow certain file formats 
-        $allowTypes = array('jpg','png','jpeg'); 
-        if(in_array($fileType, $allowTypes)){ 
-            $image = $_FILES['img']['tmp_name']; 
-            $imgContent = addslashes(file_get_contents($image)); 
-            
-            // Insert image content into database 
-            $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`) VALUES (?,?,?,?,?)");
-            $stmt->bind_param("sssss",$username,$email,$password,$selectedOption,$imageContent); 
-            $stmt->execute();
-            header('location:account.php');
-            // echo "It worked !";
-            $stmt->close();
-            $con->close();
-        }else{ 
-            $statusMsg = 'Sorry, only JPG, JPEG & PNG files are allowed to upload.'; 
-        } 
+    if ($con->connect_error) {  
+        die("Connection failed: " . $con->connect_error);
+    }else{
+        if(!empty($_FILES["img"]["name"])) { 
+            $username= $_POST['username'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $verifyPassword = $_POST['verifyPassword'];
+            $selectedOption = $_POST['selectionMenu'];
+            $fileName = basename($_FILES["img"]["name"]);
+            $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+
+            // Allow certain file formats 
+            $allowTypes = array('jpg','png','jpeg'); 
+            if(in_array($fileType, $allowTypes)){ 
+                $image = $_FILES['img']['tmp_name']; 
+                $imgContent = addslashes(file_get_contents($image)); 
+                
+                // Insert image content into database 
+                $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`) VALUES (?,?,?,?,?)");
+                $stmt->bind_param("sssss",$username,$email,$password,$selectedOption,$imageContent); 
+                $stmt->execute();
+                header('location:account.php');
+                // echo "It worked !";
+                $stmt->close();
+                $con->close();
+            }else{ 
+                $statusMsg = 'Sorry, only JPG, JPEG & PNG files are allowed to upload.'; 
+            } 
+        }
     }
 ?>
 
