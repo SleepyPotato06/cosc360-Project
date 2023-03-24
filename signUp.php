@@ -81,7 +81,7 @@
                                 <label>Profile Photo <span style="color: red;">*</span></label><br>
                                 <!-- <button id="upload-file-btn" onclick= "document.getElementById('getFile').click()">Upload File <img src="svgs/arrow-right-short.svg"></button>
                                 <input type='file' id="getFile" style="display:none"> -->
-                                <input type="file" id="img" name="img" accept="image/*">
+                                <input type="file" name="img" accept="image/*">
                             </div>
                             <div class="item-7">
                                 <input type="reset" value="Reset Form">
