@@ -2,7 +2,7 @@
 $con = mysqli_connect("cosc360.ok.ubc.ca","83864363","83864363","db_83864363");
 
 if(isset($_POST['submit'])){
-
+    echo "It worked !"
     $username= $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
