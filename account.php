@@ -53,7 +53,7 @@
                 <form action= "DBconnection.php" method="GET">
                     <div class="item-1">
                         <label>Email</label><br>     
-                        <input type = "text" name = "user-email" value = "<?php echo . $_SESSION["user-email"] . ;?>">
+                        <input type = "text" name = "user-email" value = "test">
                     </div>
                     <div class="item-2">
                         <label>Password</label><br>
