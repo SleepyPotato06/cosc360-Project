@@ -23,9 +23,6 @@ session_start();
                 header('location:account.php');
             }
             
-        }else{
-            echo "Does not exist or Invalid!";
-            // header('location:signUp.php');
         }
     }
 ?>
