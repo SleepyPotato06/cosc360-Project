@@ -3,6 +3,6 @@ const password = document.getElementsById("password");
 
 
 function editField(){
-   email.setAttribute("disabled", "");
-   password.setAttribute("disabled", "");
+   email.disabled = false;
+   password.disabled = false;
 }
