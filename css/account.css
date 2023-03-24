@@ -83,10 +83,10 @@ column-gap: 2em
     align-items: center;
 }
 
-form .email{
+form #email{
     position: relative;
-    width: 16px;
-    height: 16px;
+    width: 32px;
+    height: 32px;
     right: 2em;
     background: none;
 	border: none;
@@ -94,10 +94,10 @@ form .email{
     background-image: url("/svgs/editField.svg");
 }
 
-form .password{
+form #password{
     position: relative;
-    width: 16px;
-    height: 16px;
+    width: 32px;
+    height: 32px;
     right: 2em;
     background: none;
 	border: none;
