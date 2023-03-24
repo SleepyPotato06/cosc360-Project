@@ -80,6 +80,7 @@ column-gap: 2em
 
 .user-account-box form .item-1 img{
     position: relative;
+    right: 3em;
 }
 
 .user-account-box input {
