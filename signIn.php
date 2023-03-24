@@ -24,7 +24,7 @@ session_start();
             }
             
         }else{
-            echo "Does not exist or Invalid!"
+            echo "Does not exist or Invalid!";
             // header('location:signUp.php');
         }
     }
