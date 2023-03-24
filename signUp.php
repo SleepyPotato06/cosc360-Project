@@ -32,7 +32,7 @@ include 'DBconnection.php';
             } 
         }
     }else{
-        echo "No data sent !";
+        print(isset($_POST["submit"]));
     }
 
 ?>
