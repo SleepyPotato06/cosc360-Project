@@ -23,7 +23,6 @@ include 'DBconnection.php';
             $stmt->execute();
             $resultSet = $stmt->get_result(); // get the mysqli result
             $result = $resultSet->fetch_assoc();
-            echo "selection executed !";
 
             if(in_array($fileType, $allowTypes)){ 
                 $image = $_FILES['img']['tmp_name']; 
@@ -40,8 +39,8 @@ include 'DBconnection.php';
                     $statusMsg = 'User already exists !';
                 }else{
                     // Insert image content into database   
-                    $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`) VALUES (?,?,?,?,?)");
-                    $stmt->bind_param("sssss",$username,$email,$password,$selectedOption,$imgContent); 
+                    $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`,`userType`) VALUES (?,?,?,?,?,?)");
+                    $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent,"user"); 
                     $stmt->execute();
                     // header('location:account.php');
                     $stmt->close();
