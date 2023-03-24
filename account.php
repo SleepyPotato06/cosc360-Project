@@ -66,13 +66,13 @@ $Id = $_SESSION["Id"];
                     <h2><?php echo $_SESSION["user"] ;?></h2>
                 </div>
                 <form action= "" method="POST">
-                    <div class="item-1">
-                        <label>Email</label><br>     
+                    <label>Email</label><br>
+                    <div class="item-1">     
                         <input type = "text" name = "email" value = "<?php echo $_SESSION["email"] ;?>">
                         <img class="editField" src = "svgs/editField.svg"/>
                     </div>
+                    <label>Password</label><br>
                     <div class="item-2">
-                        <label>Password</label><br>
                         <input type = "password" name = "password" disabled="disabled">
                         <img class="editField" src = "svgs/editField.svg"/>
                     </div>
