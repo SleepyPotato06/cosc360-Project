@@ -87,7 +87,6 @@ form #email{
     position: relative;
     width: 16px;
     height: 16px;
-    right: 2em;
     background-image: url("/svgs/editField.svg");
 }
 
@@ -95,7 +94,6 @@ form #password{
     position: relative;
     width: 16px;
     height: 16px;
-    right: 2em;
     background-image: url("/svgs/editField.svg");
 }
 
