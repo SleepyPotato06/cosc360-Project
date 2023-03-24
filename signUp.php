@@ -3,7 +3,6 @@ include 'DBconnection.php';
     $statusMsg = '';
 
     if ($con->connect_error) {
-        echo "Connection Error !";  
         die("Connection failed: " . $con->connect_error);
     }else{
         if(!empty($_FILES["img"]["name"])) { 
@@ -19,7 +18,7 @@ include 'DBconnection.php';
             $allowTypes = array('jpg','png','jpeg');
             
             //Check if data already exists 
-            $stmt = $con->prepare("SELECT * FROM `user_auth` WHERE  (`Email` = ? && `Password` = ?) || (`Username` = ? && `Password` = ?) ");
+            $stmt = $con->prepare("SELECT * FROM `user_auth` WHERE  `Email` = ? && `Password` = ? || `Username` = ? && `Password` = ? ");
             $stmt->bind_param("ssss", $email,$password,$username,$password); 
             $stmt->execute();
             $resultSet = $stmt->get_result(); // get the mysqli result
@@ -29,7 +28,7 @@ include 'DBconnection.php';
                 $image = $_FILES['img']['tmp_name']; 
                 $imgContent = addslashes(file_get_contents($image));
 
-                if($email == "" || $username == "" || $password == "" || $verifyPassword == "" || $imgContent == ""){
+                if($email == "" || $username == "" || $password == "" || $verifyPassword == ""){
                     $statusMsg = 'Please enter all the required details !';
                 }elseif($password != $verifyPassword){
                     $statusMsg = 'Passwords do not match !';
