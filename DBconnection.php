@@ -20,5 +20,7 @@ if(isset($_POST['submit'])){
         $stmt->close();
         $con->close();
     }
-};
+}else{
+    echo "Data did not transfer!"
+}
 ?>
