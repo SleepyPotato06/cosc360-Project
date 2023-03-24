@@ -84,6 +84,8 @@ column-gap: 2em
 }
 
 form .editField{
+    position: relative;
+    right: 1.5em;
     border: none;
     background: none;
     background-image: url("/svgs/editField.svg");
