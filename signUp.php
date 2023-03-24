@@ -29,14 +29,11 @@ include 'DBconnection.php';
                 $image = $_FILES['img']['tmp_name']; 
                 $imgContent = addslashes(file_get_contents($image));
 
-                if($email == "" || $username == "" || $password == "" || $verifyPassword == ""){
-                    echo "empty field error !";
+                if($email == "" || $username == "" || $password == "" || $verifyPassword == "" || $imgContent = ""){
                     $statusMsg = 'Please enter all the required details !';
                 }elseif($password != $verifyPassword){
-                    echo "pass match error !";
                     $statusMsg = 'Passwords do not match !';
                 }elseif($result != null){
-                    echo "resultset error !";
                     $statusMsg = 'User already exists !';
                 }else{
                     // Insert image content into database   
