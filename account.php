@@ -67,14 +67,18 @@ $Id = $_SESSION["Id"];
                 </div>
                 <form action= "" method="POST">
                     <div class="item-1">
-                        <label>Email</label><br>     
-                        <input type = "text" name = "email" value = "<?php echo $_SESSION["email"] ;?>"  disabled="disabled">
-                        <img class="editField" src = "svgs/editField.svg"/>
+                        <label>Email</label><br>    
+                        <div class="input-container">
+                            <input type = "text" name = "email" value = "<?php echo $_SESSION["email"] ;?>"  disabled="disabled">
+                            <img class="editField" src = "svgs/editField.svg"/>
+                        </div> 
                     </div>
                     <div class="item-2">
                         <label>Password</label><br>
-                        <input type = "password" name = "password" disabled="disabled">
-                        <img class="editField" src = "svgs/editField.svg"/>
+                        <div class="input-container">
+                            <input type = "password" name = "password" disabled="disabled">
+                            <img class="editField" src = "svgs/editField.svg"/>
+                        </div>
                     </div>
                     <div class="item-3">
                         <input type="reset" value="Reset Form">
