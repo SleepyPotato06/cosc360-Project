@@ -83,6 +83,20 @@ column-gap: 2em
     align-items: center;
 }
 
+form .email{
+    background: none;
+	border: none;
+	outline: none;
+    background-image: url("/svgs/editField.svg");
+}
+
+form .password{
+    background: none;
+	border: none;
+	outline: none;
+    background-image: url("/svgs/editField.svg");
+}
+
 .user-account-box form .item-1 img{
     position: relative;
     right: 2em;

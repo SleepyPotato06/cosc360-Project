@@ -70,14 +70,14 @@ $Id = $_SESSION["Id"];
                         <label>Email</label><br>    
                         <div class="input-container">
                             <input type = "text" id="email" name = "email" value = "<?php echo $_SESSION["email"] ;?>"  disabled="disabled">
-                            <img class="editField" onclick="editField()" src = "svgs/editField.svg"/>
+                            <button class="editField" onclick="editField()"></button>
                         </div> 
                     </div>
                     <div class="item-2">
                         <label>Password</label><br>
                         <div class="input-container">
                             <input type = "password" id="password" name = "password" disabled="disabled">
-                            <img class="editField" onclick="editField()" src = "svgs/editField.svg"/>
+                            <button class="editField" onclick="editField()"></button>
                         </div>
                     </div>
                     <div class="item-3">
