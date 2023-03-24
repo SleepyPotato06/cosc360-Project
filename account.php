@@ -1,3 +1,22 @@
+<?php
+
+include 'DBconnection.php';
+
+session_start();
+    $userOremail= $_GET['user-email'];
+    $password = $_GET['password'];
+
+    if ($con->connect_error) {
+        die("Connection failed: " . $con->connect_error);
+    }else{
+        $stmt = $con->prepare("SELECT * FROM `user_auth` WHERE  `Email` = ? && `Password` = ? || `Username` = ? && `Password` = ? ");
+        $stmt->bind_param("ssss", $userOremail,$password,$userOremail,$password); 
+        $stmt->execute();
+        $resultSet = $stmt->get_result(); // get the mysqli result
+        $result = $resultSet->fetch_assoc();
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,15 +64,15 @@
             </div>  
             <div class="user-account-box">
                 <div class="profile-box">
-                    <img id= "profilePhoto" src="../images/profileImage.png">
+                    <img id= "profilePhoto" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($result['profilePicture']); ?>">
                     <div id="centered">Upload<br>Photo</div>
                     <h1>Username</p>
                     <h2>Jason</h2>
                 </div>
-                <form action= "DBconnection.php" method="POST">
+                <form action= "DBconnection.php" method="GET">
                     <div class="item-1">
                         <label>Email</label><br>     
-                        <input type = "text" name = "user-email">
+                        <input type = "text" name = "user-email" value = "<?php echo $result['Email']?>">
                     </div>
                     <div class="item-2">
                         <label>Password</label><br>
