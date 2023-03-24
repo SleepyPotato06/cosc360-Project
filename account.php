@@ -69,7 +69,7 @@ $Id = $_SESSION["Id"];
                     <div class="item-1">
                         <label>Email</label><br>    
                         <div class="input-container">
-                            <input type = "text" id="email" name = "email" value = "<?php echo $_SESSION["email"] ;?>"  disabled="enabled">
+                            <input type = "text" id="email" name = "email" value = "<?php echo $_SESSION["email"] ;?>">
                             <button class="editField" onclick="editField()"><img src="svgs/editField.svg"></button>
                         </div> 
                     </div>
