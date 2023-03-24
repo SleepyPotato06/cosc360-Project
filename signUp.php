@@ -29,7 +29,7 @@ include 'DBconnection.php';
                 $image = $_FILES['img']['tmp_name']; 
                 $imgContent = addslashes(file_get_contents($image));
 
-                if($email == "" || $username == "" || $password == "" || $verifyPassword == "" || $imgContent = ""){
+                if($email == "" || $username == "" || $password == "" || $verifyPassword == ""){
                     $statusMsg = 'Please enter all the required details !';
                 }elseif($password != $verifyPassword){
                     $statusMsg = 'Passwords do not match !';
@@ -38,7 +38,7 @@ include 'DBconnection.php';
                 }else{
                     // Insert image content into database   
                     $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`,`userType`) VALUES (?,?,?,?,?,?)");
-                    $stmt->bind_param("ssssbs",$username,$email,$password,$selectedOption,$imgContent,$userType); 
+                    $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent,$userType); 
                     $stmt->execute();
                     header('location:signIn.php');
                     $stmt->close();
