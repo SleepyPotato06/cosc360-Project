@@ -6,11 +6,10 @@ session_start();
 
 if(isset($_GET['submit'])){
 
-    $username= $_GET['username'];
-    $email = $_GET['email'];
+    $userOremail= $_GET['user-email'];
     $password = $_GET['password'];
 
-   $select = " SELECT * FROM user_auth WHERE (Email = '$email' && Password = '$password')  || (Username = '$username' && Password = '$pass')";
+   $select = " SELECT * FROM user_auth WHERE (Email = '$userOremail' && Password = '$password')  || (Username = '$userOremail' && Password = '$password')";
 
    $result = mysqli_query($con, $select);
 
@@ -20,12 +19,12 @@ if(isset($_GET['submit'])){
 
       if($row['userType'] == 'admin'){
 
-         $_SESSION['userType'] = $row['Username'];
+         $_SESSION['userType'] = $row['username'];
          header('location:admin.php');
 
       }elseif($row['user_type'] == 'user'){
 
-         $_SESSION['user_name'] = $row['Username'];
+         $_SESSION['user_name'] = $row['username'];
          header('location:account.php');
 
       }
