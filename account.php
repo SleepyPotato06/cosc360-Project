@@ -1,21 +1,3 @@
-<?php
-
-include 'DBconnection.php';
-    session_start();
-    $userOremail= $_GET['user-email'];
-    $password = $_GET['password'];
-
-    if ($con->connect_error) {
-        die("Connection failed: " . $con->connect_error);
-    }else{
-        $stmt = $con->prepare("SELECT * FROM `user_auth` WHERE  `Email` = ? && `Password` = ? || `Username` = ? && `Password` = ? ");
-        $stmt->bind_param("ssss", $userOremail,$password,$userOremail,$password); 
-        $stmt->execute();
-        $resultSet = $stmt->get_result(); // get the mysqli result
-        $result = $resultSet->fetch_assoc();
-
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +53,7 @@ include 'DBconnection.php';
                 <form action= "DBconnection.php" method="GET">
                     <div class="item-1">
                         <label>Email</label><br>     
-                        <input type = "text" name = "user-email" value = "<?php echo $result['Email']?>">
+                        <input type = "text" name = "user-email" value = "<?php echo . $_SESSION["user-email"] . ;?>">
                     </div>
                     <div class="item-2">
                         <label>Password</label><br>
