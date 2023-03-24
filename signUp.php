@@ -40,7 +40,7 @@ include 'DBconnection.php';
                     $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`,`userType`) VALUES (?,?,?,?,?,?)");
                     $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent,$userType); 
                     $stmt->execute();
-                    header('location:account.php');
+                    header('location:signIn.php');
                     $stmt->close();
                     $con->close();
                 }
