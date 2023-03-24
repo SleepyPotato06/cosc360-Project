@@ -24,8 +24,8 @@ include 'DBconnection.php';
                 $imgContent = addslashes(file_get_contents($image)); 
                 
                 // Insert image content into database 
-                $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`) VALUES (?,?,?,?,?)");
-                $stmt->bind_param("sssss",$username,$email,$password,$selectedOption,$imgContent); 
+                $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`,`userType`) VALUES (?,?,?,?,?,?)");
+                $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent,'user'); 
                 $stmt->execute();
                 header('location:account.php');
                 // echo "It worked !";
