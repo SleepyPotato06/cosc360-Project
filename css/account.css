@@ -84,6 +84,10 @@ column-gap: 2em
 }
 
 form .email{
+    position: relative;
+    width: 16px;
+    height: 16px;
+    right: 2em;
     background: none;
 	border: none;
 	outline: none;
@@ -91,20 +95,14 @@ form .email{
 }
 
 form .password{
+    position: relative;
+    width: 16px;
+    height: 16px;
+    right: 2em;
     background: none;
 	border: none;
 	outline: none;
     background-image: url("/svgs/editField.svg");
-}
-
-.user-account-box form .item-1 img{
-    position: relative;
-    right: 2em;
-}
-
-.user-account-box form .item-2 img{
-    position: relative;
-    right: 2em;
 }
 
 
