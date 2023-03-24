@@ -13,6 +13,7 @@ include 'DBconnection.php';
             $selectedOption = $_POST['selectionMenu'];
             $fileName = basename($_FILES["img"]["name"]);
             $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+            $userType = "user";
 
             // Allow certain file formats 
             $allowTypes = array('jpg','png','jpeg');
@@ -40,7 +41,7 @@ include 'DBconnection.php';
                 }else{
                     // Insert image content into database   
                     $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`,`userType`) VALUES (?,?,?,?,?,?)");
-                    $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent,"user"); 
+                    $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent,$userType); 
                     $stmt->execute();
                     // header('location:account.php');
                     $stmt->close();
