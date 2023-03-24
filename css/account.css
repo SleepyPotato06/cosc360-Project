@@ -85,23 +85,17 @@ column-gap: 2em
 
 form #email{
     position: relative;
-    width: 32px;
-    height: 32px;
+    width: 16px;
+    height: 16px;
     right: 2em;
-    background: none;
-	border: none;
-	outline: none;
     background-image: url("/svgs/editField.svg");
 }
 
 form #password{
     position: relative;
-    width: 32px;
-    height: 32px;
+    width: 16px;
+    height: 16px;
     right: 2em;
-    background: none;
-	border: none;
-	outline: none;
     background-image: url("/svgs/editField.svg");
 }
 
