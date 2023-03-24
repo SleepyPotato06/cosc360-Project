@@ -108,7 +108,7 @@ if(isset($_POST['submit'])){
                             <div class="item-5">
                                 <label>Coming From</label><br>
                                 <select name="selectionMenu">
-                                    <option value="Google">Google</option>
+                                    <option value="Google"  selected="selected">Google</option>
                                     <option value="Friend">Friend</option>
                                     <option value="Social Media">Social Media</option>
                                 </select>
