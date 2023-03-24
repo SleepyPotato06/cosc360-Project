@@ -31,7 +31,8 @@ if(isset($_GET['submit'])){
       }
      
    }else{
-      $error[] = 'Incorrect Username or Password!';
+      echo "
+      <p>Account does not exist !</p>";
    }
 
 };
