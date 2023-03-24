@@ -36,8 +36,8 @@ include 'DBconnection.php';
                     $statusMsg = 'User already exists !';
                 }else{
                     // Insert image content into database   
-                    $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`,`userType`) VALUES (?,?,?,?,?,?)");
-                    $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent,'user'); 
+                    $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`) VALUES (?,?,?,?,?)");
+                    $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent); 
                     $stmt->execute();
                     header('location:account.php');
                     // echo "It worked !";
