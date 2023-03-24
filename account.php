@@ -1,7 +1,6 @@
 <?php
 
 include 'DBconnection.php';
-include 'signIn.php';
     session_start();
     $userOremail= $_GET['user-email'];
     $password = $_GET['password'];
