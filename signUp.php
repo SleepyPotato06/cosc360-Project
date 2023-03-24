@@ -4,7 +4,8 @@ include 'DBconnection.php';
     $status = '';
     $statusMsg = '';
 
-    if ($con->connect_error) {  
+    if ($con->connect_error) {
+        echo "Connection Error !";  
         die("Connection failed: " . $con->connect_error);
     }else{
         if(!empty($_FILES["img"]["name"])) { 
