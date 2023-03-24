@@ -80,7 +80,7 @@ if ($con->connect_error) {
                     <div class="item-1">
                         <label>Email</label><br>     
                         <!-- <img class="editField" src = "svgs/editField.svg"/> -->
-                        <input type = "text" name = "email" value = "<?php echo $_SESSION["email"] ;?>" disabled="disabled">
+                        <input type = "text" name = "email" value = "<?php echo $_SESSION["email"] ;?>">
                     </div>
                     <div class="item-2">
                         <label>Password</label><br>
