@@ -31,6 +31,8 @@ include 'DBconnection.php';
                 $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
             } 
         }
+    }else{
+        echo "No data sent !"
     }
 
 ?>
