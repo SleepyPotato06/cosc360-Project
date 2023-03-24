@@ -1,5 +1,7 @@
 <?php
+session_start();
 include 'DBconnection.php';
+
     $statusMsg = '';
 
     if ($con->connect_error) {
