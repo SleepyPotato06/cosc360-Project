@@ -77,7 +77,7 @@ if ($con->connect_error) {
                 <form action= "" method="POST">
                     <div class="item-1">
                         <label>Email</label><br>     
-                        <img class="editField" src = "svgs/editField.svg"/>
+                        <!-- <img class="editField" src = "svgs/editField.svg"/> -->
                         <input type = "text" name = "email" value = "<?php echo $_SESSION["email"] ;?>" disabled="disabled">
                     </div>
                     <div class="item-2">
