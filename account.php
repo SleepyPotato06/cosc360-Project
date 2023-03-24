@@ -3,11 +3,13 @@ session_start();
 
 $email= $_POST['email'];
 $password = $_POST['password'];
+$Id = $_SESSION["Id"];
+
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }else{
-    $stmt = $con->prepare("UPDATE `user_auth` SET `Email` = ? AND `Password` = ?");
-    $stmt->bind_param("ss", $email,$password); 
+    $stmt = $con->prepare("UPDATE `user_auth` SET `Email` = ? AND `Password` = ? WHERE `Id` = ?");
+    $stmt->bind_param("ss", $email,$password,$Id); 
     $stmt->execute();
 }
 ?>
