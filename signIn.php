@@ -5,7 +5,6 @@ include 'DBconnection.php';
     $password = $_GET['password'];
 
     $_SESSION["user"] = $_GET['user-email'];
-
     if ($con->connect_error) {
         die("Connection failed: " . $con->connect_error);
     }else{
