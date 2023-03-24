@@ -24,7 +24,7 @@ include 'DBconnection.php';
                 $stmt->bind_param("sssss",$username,$email,$password,$selectedOption,$image); 
                 $stmt->execute();
                 // header('location:account.php');
-                ech "It worked !";
+                echo "It worked !";
                 $stmt->close();
                 $con->close();
             }else{ 
