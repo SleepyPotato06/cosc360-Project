@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +52,7 @@
                     <div id="centered">Upload<br>Photo</div>
                     <h1>Username</p>
                     <h2>Jason</h2>
-                    <p><?php echo .$_SESSION["user"].;?></p>
+                    <p><?php echo .$_SESSION["user"]. ;?></p>
                 </div>
                 <form action= "DBconnection.php" method="GET">
                     <div class="item-1">

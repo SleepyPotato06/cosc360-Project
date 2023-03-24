@@ -1,11 +1,10 @@
 <?php
-
-include 'DBconnection.php';
 session_start();
+include 'DBconnection.php';
     $userOremail= $_GET['user-email'];
     $password = $_GET['password'];
 
-    $_SESSION["user"] = $userOremail;
+    $_SESSION["user"] = $_GET['user-email'];
 
     if ($con->connect_error) {
         die("Connection failed: " . $con->connect_error);
