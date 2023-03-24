@@ -70,8 +70,6 @@ if ($con->connect_error) {
             </div>  
             <div class="user-account-box">
                 <div class="profile-box">
-
-                    <?php echo '<img  id= "profilePhoto" src="data:image/jpeg;base64,'.base64_encode( $_SESSION["pfp"] ).'"/>';?>
                     <div id="centered">Upload<br>Photo</div>
                     <h1>Username</p>
                     <h2><?php echo $_SESSION["user"] ;?></h2>

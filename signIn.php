@@ -25,7 +25,7 @@ include 'DBconnection.php';
 
     $_SESSION["user"] = $_GET['user-email'];
     $_SESSION["email"] = $result['Email'];
-    $_SESSION["pfp"] = $result['profilePicture'];
+    // $_SESSION["pfp"] = $result['profilePicture'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,9 +73,9 @@ include 'DBconnection.php';
                 <h2>Sign In</h2>
                 <p>Lorem ipsum dolor sit amet consectetur. Erat facilisi varius est cursus. Neque sagittis mi non purus semper lacus mauris magnis.</p>
                 <div class="info-footer">
-                    <p><a href="http://cosc360.ok.ubc.ca//suyash06/cosc360-Project/signUp.php">Don’t Have An Account?</a></p>
+                    <p><a href="http://cosc360.ok.ubc.ca/suyash06/cosc360-Project/signUp.php">Don’t Have An Account?</a></p>
                     <p>or</p>
-                    <p><a href="http://cosc360.ok.ubc.ca//suyash06/cosc360-Project/community.php">Explore Dashboards?</a></p>
+                    <p><a href="http://cosc360.ok.ubc.ca/suyash06/cosc360-Project/community.php">Explore Dashboards?</a></p>
                 </div>
             </div>  
             <div class="login-box">
