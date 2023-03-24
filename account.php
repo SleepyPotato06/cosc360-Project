@@ -48,7 +48,7 @@ session_start();
             </div>  
             <div class="user-account-box">
                 <div class="profile-box">
-                    <img id= "profilePhoto" src="<?php echo $_SESSION["pfp"] ;?>">
+                    <img id= "profilePhoto" src="data:image/*;charset=utf8;base64,<?php echo $_SESSION["pfp"] ;?>">
                     <div id="centered">Upload<br>Photo</div>
                     <h1>Username</p>
                     <h2>Jason</h2>
@@ -56,7 +56,7 @@ session_start();
                 <form action= "DBconnection.php" method="GET">
                     <div class="item-1">
                         <label>Email</label><br>     
-                        <input type = "text" name = "user-email" value = "data:image/*;charset=utf8;base64,<?php echo $_SESSION["user"] ;?>">
+                        <input type = "text" name = "user-email" value = "<?php echo $_SESSION["user"] ;?>">
                     </div>
                     <div class="item-2">
                         <label>Password</label><br>
