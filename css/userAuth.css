@@ -1,3 +1,8 @@
+@keyframes rainbow-animation {
+  to {
+      background-position: 4500vh;
+  }
+}
 
 .header-container {
     width: calc(100vw - 4em);
@@ -17,18 +22,22 @@
 
 .header-container .logo img{
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
-.login-container{
-    position: relative;
-    width: calc(100vw - 4em);
-    height: fit-content;
-    display: flex;
-    float: left;
-    padding: 2em;
-    font-weight: 400;
+.auth-container{
+  width: calc(100vw - 4em);
+  height: fit-content;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  padding: 2em;
+  background-color: var(--White-1);
 }
 
 .login-info{
@@ -43,8 +52,16 @@
 .login-info h2{
     font-weight: 800;
     font-size: 4em;
-    color: #050505;
+    /* background: -webkit-linear-gradient(#039dda,#025fac,#0019f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    background-image: 
+    linear-gradient(to right, rgb(0, 195, 255),rgb(0, 140, 255),rgb(0, 110, 255),rgb(0, 119, 255),rgb(0, 204, 255),rgb(0, 162, 255)); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    animation: rainbow-animation 80s linear infinite;
 }
+
 
 .login-info p{
     width: 65%;
@@ -67,15 +84,23 @@
 }
 
 .login-box{
-  float: right;
-  position: relative;
   height: fit-content;
   width: fit-content;
   display: grid;
   white-space:nowrap;
 }
 
-.login-display-card-container{
+
+.display-card-container{
+  width: calc(100vw - 4em);
+  height: fit-content;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+}
+/* .login-display-card-container{
   position: relative;
   width: calc(100vw - 4em);
   height: fit-content;
@@ -93,19 +118,15 @@
   grid-template-columns: auto auto auto;
   column-gap: 50px;
   padding: 2em;
-  padding-bottom: 0;
+  padding-bottom: 0; */
+/* } */
+
+.display-card-grid{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 }
 
 .dashboardCard{
-  position: relative;
-  grid-column-start: 1;
-  grid-column-end: 1;
-  border-radius: 1em;
-  transform: translate(50px,50px);
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(.jpg);
-  background-image: url("../images/card.png");
-  background-size: 28rem 15rem;
-  border-radius: 0.5em;
 }
 
   * {
@@ -294,6 +315,14 @@ select{
   font-weight: 800;
   font-size: 4em;
   color: #050505;
+  /* background: -webkit-linear-gradient(#039dda,#025fac,#0019f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  background-image: 
+  linear-gradient(to right, rgb(0, 195, 255),rgb(0, 140, 255),rgb(0, 110, 255),rgb(0, 119, 255),rgb(0, 204, 255),rgb(0, 162, 255)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
+  animation: rainbow-animation 80s linear infinite;
 }
 
 .register-info p{

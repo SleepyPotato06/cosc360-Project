@@ -1,8 +1,48 @@
+<?php
+
+include 'DBconnection.php';
+
+session_start();
+
+if(isset($_GET['submit'])){
+
+    $username= $_GET['username'];
+    $email = $_GET['email'];
+    $password = $_GET['password'];
+
+   $select = " SELECT * FROM user_auth WHERE (Email = '$email' && Password = '$password')  || (Username = '$username' && Password = '$pass')";
+
+   $result = mysqli_query($con, $select);
+
+   if(mysqli_num_rows($result) > 0){
+
+      $row = mysqli_fetch_array($result);
+
+      if($row['userType'] == 'admin'){
+
+         $_SESSION['userType'] = $row['Username'];
+         header('location:admin.php');
+
+      }elseif($row['user_type'] == 'user'){
+
+         $_SESSION['user_name'] = $row['Username'];
+         header('location:account.php');
+
+      }
+     
+   }else{
+      $error[] = 'Incorrect Username or Password!';
+   }
+
+};
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8" />
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 360</title>
     <link rel="stylesheet" href="font/helvetica-now-display/stylesheet.css">
     <link rel="stylesheet" href="css/var.css">
@@ -19,11 +59,11 @@
     <div class="main-container">
         <header class="header-container">
             <div class="logo">
-                <img src="images/radarLive.png">
+                <img src="images/sitelogo.png" style="float: left;">
             </div>
             <nav>
-                <a href="#">Community</a>
-                <a href="#">Help</a>
+                <a href="http://cosc360.ok.ubc.ca/cosc360-Project/community.php">Community</a>
+                <a href="http://cosc360.ok.ubc.ca/cosc360-Project/help.php">Help</a>
             </nav>
             <div class="settings container">
                 <div class="horizontal-container fit-width" style="margin-right: 2em;">
@@ -33,23 +73,22 @@
                 </div>
                 <div class="horizontal-container fit-width">
                     <p>Sign In / Sign Up</p>
-
                 </div>
             </div>
         </header>
-        <div class = "login-container">
+        <div class = "auth-container">
             <div class="login-info">
                 <h1>Home/</h1>
                 <h2>Sign In</h2>
                 <p>Lorem ipsum dolor sit amet consectetur. Erat facilisi varius est cursus. Neque sagittis mi non purus semper lacus mauris magnis.</p>
                 <div class="info-footer">
-                    <p><a href="http://localhost/project360/signUp.php">Don’t Have An Account?</a></p>
+                    <p><a href="http://cosc360.ok.ubc.ca/cosc360-Project/signUp.php">Don’t Have An Account?</a></p>
                     <p>or</p>
-                    <p><a href="http://localhost/project360/community.php">Explore Dashboards?</a></p>
+                    <p><a href="http://cosc360.ok.ubc.ca/cosc360-Project/community.php">Explore Dashboards?</a></p>
                 </div>
             </div>  
             <div class="login-box">
-                <form name = "LoginForm" action= "DBconnection.php" onsubmit="return validateLoginForm()" method="GET">
+                <form name = "LoginForm" id ="LoginForm" action= "DBconnection.php" onsubmit="return validateLoginForm()" method="GET" required>
                     <div class="item-1">
                         <label>Username or Email</label><br>     
                         <input type = "text" name = "user-email" placeholder="What’s Your Registered Username or Email?">
@@ -67,14 +106,16 @@
                 </form>
             </div>
         </div>
-        <div class = "login-display-card-container">
-            <div class="display-card">
-                <a href = "http://localhost/project360/dashboard.php"><img class="dashboardCard"></a>
-                <a href = "http://localhost/project360/dashboard.php"><img class="dashboardCard"></a>
-                <a href = "http://localhost/project360/dashboard.php"><img class="dashboardCard"></a>
-            </div>
+        <div class = "display-card-container">
+            <div class = "display-card-grid">
+                <a href = "http://cosc360.ok.ubc.ca/cosc360-Project/dashboard.php"><img class="dashboardCard"></a>
+                <a href = "http://cosc360.ok.ubc.ca/cosc360-Project/dashboard.php"><img class="dashboardCard"></a>
+                <a href = "http://cosc360.ok.ubc.ca/cosc360-Project/dashboard.php"><img class="dashboardCard"></a>
+                <!-- <a href = "http://localhost/project360/dashboard.php"><img class="dashboardCard"></a>
+                <a href = "http://localhost/project360/dashboard.php"><img class="dashboardCard"></a> -->
+            </div>            
         </div>
-    </div>   
+    </div>
 </body>
 
 </html>
