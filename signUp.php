@@ -23,24 +23,29 @@ include 'DBconnection.php';
             $stmt->execute();
             $resultSet = $stmt->get_result(); // get the mysqli result
             $result = $resultSet->fetch_assoc();
+            echo "selection executed !";
 
             if(in_array($fileType, $allowTypes)){ 
                 $image = $_FILES['img']['tmp_name']; 
                 $imgContent = addslashes(file_get_contents($image));
 
                 if($email == "" || $username == "" || $password == "" || $verifyPassword == ""){
+                    echo "empty field error !";
                     $statusMsg = 'Please enter all the required details !';
                 }elseif($password != $verifyPassword){
+                    echo "pass match error !";
                     $statusMsg = 'Passwords do not match !';
                 }elseif($result != null){
+                    echo "resultset error !";
                     $statusMsg = 'User already exists !';
                 }else{
+                    echo "insertion executed !";
                     // Insert image content into database   
                     $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`) VALUES (?,?,?,?,?)");
                     $stmt->bind_param("ssssss",$username,$email,$password,$selectedOption,$imgContent); 
                     $stmt->execute();
-                    header('location:account.php');
-                    // echo "It worked !";
+                    // header('location:account.php');
+                    echo "insertion executed !";
                     $stmt->close();
                     $con->close();
                 }
