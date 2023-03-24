@@ -5,8 +5,8 @@ session_start();
     $userOremail= $_GET['user-email'];
     $password = $_GET['password'];
 
-    $_SESSION["user-email"] = $userOremail;
-    
+    $_SESSION["user"] = $userOremail;
+
     if ($con->connect_error) {
         die("Connection failed: " . $con->connect_error);
     }else{
