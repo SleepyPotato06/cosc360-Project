@@ -45,7 +45,7 @@
             </div>  
             <div class="user-account-box">
                 <div class="profile-box">
-                    <img id= "profilePhoto" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($result['profilePicture']); ?>">
+                    <img id= "profilePhoto" src="../cosc360-Project/images/profile-picture.png">
                     <div id="centered">Upload<br>Photo</div>
                     <h1>Username</p>
                     <h2>Jason</h2>
