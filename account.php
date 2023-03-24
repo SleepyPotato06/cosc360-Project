@@ -51,12 +51,12 @@ session_start();
                     <img id= "profilePhoto" src="data:image/*;charset=utf8;base64,<?php echo $_SESSION["pfp"] ;?>">
                     <div id="centered">Upload<br>Photo</div>
                     <h1>Username</p>
-                    <h2>Jason</h2>
+                    <h2><?php echo $_SESSION["user"] ;?></h2>
                 </div>
                 <form action= "DBconnection.php" method="GET">
                     <div class="item-1">
                         <label>Email</label><br>     
-                        <input type = "text" name = "user-email" value = "<?php echo $_SESSION["user"] ;?>">
+                        <input type = "text" name = "user-email" value = "<?php echo $_SESSION["email"] ;?>">
                     </div>
                     <div class="item-2">
                         <label>Password</label><br>

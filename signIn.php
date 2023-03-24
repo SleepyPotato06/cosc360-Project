@@ -24,6 +24,7 @@ include 'DBconnection.php';
     }
 
     $_SESSION["user"] = $_GET['user-email'];
+    $_SESSION["email"] = $result['Email'];
     $_SESSION["pfp"] = base64_encode($result['profilePicture']);
 ?>
 <!DOCTYPE html>
