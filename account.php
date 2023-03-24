@@ -48,7 +48,8 @@ session_start();
             </div>  
             <div class="user-account-box">
                 <div class="profile-box">
-                    <img id= "profilePhoto" src="data:image/*;charset=utf8;base64,<?php echo $_SESSION["pfp"] ;?>">
+
+                    <?php echo '<img  id= "profilePhoto" src="data:image/jpeg;base64,'.base64_encode( $_SESSION["pfp"] ).'"/>';?>
                     <div id="centered">Upload<br>Photo</div>
                     <h1>Username</p>
                     <h2><?php echo $_SESSION["user"] ;?></h2>
