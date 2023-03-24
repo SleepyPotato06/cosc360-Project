@@ -33,7 +33,7 @@ include 'DBconnection.php';
                     $statusMsg = 'Please enter all the required details !';
                 }elseif($password != $verifyPassword){
                     $statusMsg = 'Passwords do not match !';
-                }elseif(mysqli_num_rows($result) > 0){
+                }elseif($result != null){
                     $statusMsg = 'User already exists !';
                 }else{
                     // Insert image content into database   
