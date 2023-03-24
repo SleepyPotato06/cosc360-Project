@@ -3,37 +3,31 @@
 include 'DBconnection.php';
 
 session_start();
+    $userOremail= $_GET['user-email'];
+    $password = $_GET['password'];
 
-if(isset($_GET['submit'])){
+    if ($con->connect_error) {
+        die("Connection failed: " . $con->connect_error);
+    }else{
+        $stmt = $con->prepare("SELECT * FROM `user_auth` WHERE  `Email` = ? && `Password` = ? || `Username` = ? && `Password` = ? ");
+        $stmt->bind_param("ssss", $userOremail,$password,$userOremail,$password); 
+        $stmt->execute();
+        $resultSet = $stmt->get_result(); // get the mysqli result
+        $result = $resultSet->fetch_assoc();
 
-    $userOremail= $_POST['user-email'];
-    $password = $_POST['password'];
+        if($result != null){
+            if($result['userType'] == 'admin'){
+                header('location:admin.php');
 
-   $select = " SELECT * FROM user_auth WHERE (Email = '$userOremail' && Password = '$password')  || (Username = '$userOremail' && Password = '$password')";
-
-   $result = mysqli_query($con, $select);
-
-   if(mysqli_num_rows($result) > 0){
-
-      $row = mysqli_fetch_array($result);
-
-      if($row['userType'] == 'admin'){
-
-         $_SESSION['userType'] = $row['username'];
-         header('location:admin.php');
-
-      }elseif($row['user_type'] == 'user'){
-
-         $_SESSION['user_name'] = $row['username'];
-         header('location:account.php');
-
-      }
-     
-   }else{
-        header('location:signUp.php');
-   }
-
-};
+            }elseif($result['userType'] == 'user'){
+                header('location:account.php');
+            }
+            
+        }else{
+            echo "Does not exist or Invalid!"
+            // header('location:signUp.php');
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html>
