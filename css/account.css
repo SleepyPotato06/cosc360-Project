@@ -79,14 +79,14 @@ column-gap: 2em
 }
 
 
-/* .user-account-box form .item-1{
+.user-account-box form .item-1{
     display: flex;
     align-items: center;
 }
 
 .user-account-box form .item-1 img{
     position: relative;
-} */
+}
 
 .user-account-box input {
     margin-top: 1em;

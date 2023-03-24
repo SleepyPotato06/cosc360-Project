@@ -1,27 +1,15 @@
 <?php
 session_start();
 
-// $email= $_POST['email'];
-// $password = $_POST['password'];
-// if ($con->connect_error) {
-//     die("Connection failed: " . $con->connect_error);
-// }else{
-//     $stmt = $con->prepare("SELECT * FROM `user_auth` WHERE  `Email` = ? && `Password` = ? || `Username` = ? && `Password` = ? ");
-//     $stmt->bind_param("ssss", $userOremail,$password,$userOremail,$password); 
-//     $stmt->execute();
-//     $resultSet = $stmt->get_result(); // get the mysqli result
-//     $result = $resultSet->fetch_assoc();
-
-//     if($result != null){
-//         if($result['userType'] == 'admin'){
-//             header('location:admin.php');
-
-//         }elseif($result['userType'] == 'user'){
-//             header('location:account.php');
-//         }
-        
-//     }
-// }
+$email= $_POST['email'];
+$password = $_POST['password'];
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}else{
+    $stmt = $con->prepare("UPDATE `user_auth` SET `Email` = ? AND `Password` = ?");
+    $stmt->bind_param("ss", $email,$password); 
+    $stmt->execute();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +65,7 @@ session_start();
                 <form action= "" method="POST">
                     <div class="item-1">
                         <label>Email</label><br>     
-                        <!-- <img class="editField" src = "svgs/editField.svg"/> -->
+                        <img class="editField" src = "svgs/editField.svg"/>
                         <input type = "text" name = "email" value = "<?php echo $_SESSION["email"] ;?>">
                     </div>
                     <div class="item-2">
