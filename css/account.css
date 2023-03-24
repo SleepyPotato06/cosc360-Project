@@ -78,7 +78,12 @@ column-gap: 2em
     grid-column-start: 2;
 }
 
-.user-account-box form .item-1, .item-2 img{
+.user-account-box form .item-1 img{
+    position: relative;
+    right: 2em;
+}
+
+.user-account-box form .item-2 img{
     position: relative;
     right: 2em;
 }
