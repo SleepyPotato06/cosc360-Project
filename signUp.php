@@ -23,7 +23,8 @@ include 'DBconnection.php';
                 $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`) VALUES (?,?,?,?,?)");
                 $stmt->bind_param("sssss",$username,$email,$password,$selectedOption,$image); 
                 $stmt->execute();
-                header('location:signUp.php');
+                // header('location:account.php');
+                ech "It worked !"
                 $stmt->close();
                 $con->close();
             }else{ 
@@ -87,7 +88,7 @@ include 'DBconnection.php';
                 </div>
             </div>  
             <div class="register-box">
-                <form name = "RegisterForm" enctype="multipart/form-data" action= "DBconnection.php" onsubmit="return validateRegisterForm()" method="POST">
+                <form name = "RegisterForm" enctype="multipart/form-data" action= "" onsubmit="return validateRegisterForm()" method="POST">
                             <div class="item-1">
                                 <label>Username <span style="color: red;">*</span></label><br>                   
                                 <input type = "text" name = "username" placeholder="What Should We Call You?">
