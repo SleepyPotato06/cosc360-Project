@@ -3,8 +3,6 @@ session_start();
 include 'DBconnection.php';
     $userOremail= $_GET['user-email'];
     $password = $_GET['password'];
-
-    $_SESSION["user"] = $_GET['user-email'];
     if ($con->connect_error) {
         die("Connection failed: " . $con->connect_error);
     }else{
@@ -24,6 +22,9 @@ include 'DBconnection.php';
             
         }
     }
+
+    $_SESSION["user"] = $_GET['user-email'];
+    $_SESSION["pfp"] = base64_encode($result['profilePicture']);
 ?>
 <!DOCTYPE html>
 <html>
