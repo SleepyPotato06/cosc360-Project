@@ -1,50 +1,4 @@
-<?php
 
-include 'DBconnection.php';
-
-if(isset($_POST['submit'])){
-
-    $username= $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $verifyPassword = $_POST['verifyPassword'];
-    $selectedOption = $_POST['selectionMenu'];
-    $image = $_POST['img'];
-
-    if($con->connect_error){
-        die('Connection Failed :' .$con->connect_error);
-    }else{
-        $stmt = $con->prepare("INSERT INTO `user_auth` (`Username`, `Email`, `Password`,`comingFrom`,`profilePicture`, `userType`) VALUES (?,?,?,?,?,?)");
-        $stmt->bind_param("ssssbs",$username,$email,$password,$selectedOption,$image,'user');
-        $stmt->execute();
-        header('location:signIn.php');
-        $stmt->close();
-        $con->close();
-    }
-    
-//    $select = " SELECT * FROM user_auth WHERE (Email = '$email' && Password = '$pass') || (Username = '$username' && Password = '$pass') ";
-
-//    $result = mysqli_query($con, $select);
-
-//    if(mysqli_num_rows($result) > 0){
-
-//       $error[] = 'User already exists!';
-
-//    }else{
-
-//       if($password != $verifyPassword){
-//          $error[] = 'Password not matched!';
-//       }else{
-//          $insert = "INSERT INTO user_auth(Username, Email, Password, userType) VALUES('$username','$email','$password','user')";
-//          mysqli_query($con, $insert);
-//          header('location:signIn.php');
-//       }
-//    }
-
-};
-
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -99,7 +53,7 @@ if(isset($_POST['submit'])){
                 </div>
             </div>  
             <div class="register-box">
-                <form name = "RegisterForm" enctype="multipart/form-data" action= "" onsubmit="return validateRegisterForm()" method="POST" required>
+                <form name = "RegisterForm" enctype="multipart/form-data" action= "DBconnection.php" onsubmit="return validateRegisterForm()" method="POST">
                             <div class="item-1">
                                 <label>Username <span style="color: red;">*</span></label><br>                   
                                 <input type = "text" name = "username" placeholder="What Should We Call You?">
