@@ -30,8 +30,7 @@ if(isset($_GET['submit'])){
       }
      
    }else{
-      echo "
-      <p>Account does not exist !</p>";
+        header('location:signUp.php');
    }
 
 };
