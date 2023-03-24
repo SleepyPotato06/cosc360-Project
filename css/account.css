@@ -78,6 +78,16 @@ column-gap: 2em
     grid-column-start: 2;
 }
 
+
+.user-account-box form .item-1{
+    display: flex;
+    align-items: center;
+}
+
+.user-account-box form .item-1 img{
+    position: relative;
+}
+
 .user-account-box input {
     margin-top: 1em;
     margin-bottom: 1em;

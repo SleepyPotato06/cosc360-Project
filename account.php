@@ -1,5 +1,27 @@
 <?php
 session_start();
+
+$email= $_GET['email'];
+$password = $_GET['password'];
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}else{
+    $stmt = $con->prepare("SELECT * FROM `user_auth` WHERE  `Email` = ? && `Password` = ? || `Username` = ? && `Password` = ? ");
+    $stmt->bind_param("ssss", $userOremail,$password,$userOremail,$password); 
+    $stmt->execute();
+    $resultSet = $stmt->get_result(); // get the mysqli result
+    $result = $resultSet->fetch_assoc();
+
+    if($result != null){
+        if($result['userType'] == 'admin'){
+            header('location:admin.php');
+
+        }elseif($result['userType'] == 'user'){
+            header('location:account.php');
+        }
+        
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,14 +76,15 @@ session_start();
                     <h1>Username</p>
                     <h2><?php echo $_SESSION["user"] ;?></h2>
                 </div>
-                <form action= "DBconnection.php" method="GET">
+                <form action= "" method="POST">
                     <div class="item-1">
                         <label>Email</label><br>     
-                        <input type = "text" name = "user-email" value = "<?php echo $_SESSION["email"] ;?>">
+                        <img class="editField" src = "svgs/editField.svg"/>
+                        <input type = "text" name = "email" value = "<?php echo $_SESSION["email"] ;?>" disabled="disabled">
                     </div>
                     <div class="item-2">
                         <label>Password</label><br>
-                        <input type = "password" name = "password">
+                        <input type = "password" name = "password" disabled="disabled">
                     </div>
                     <div class="item-3">
                         <input type="reset" value="Reset Form">
